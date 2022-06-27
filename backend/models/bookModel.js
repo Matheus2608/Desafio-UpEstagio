@@ -11,7 +11,7 @@ const bookSchema = mongoose.Schema(
       required: [true, 'Please add an author value'],
     },
     date: { 
-      type: Date, default: Date.now ,
+      type: Date,
       required: [true, 'Please add a date value'],
     }
   },

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios';
 export function Books({state}) {
 
-    const {registerPage, setRegisterPage} = state
+    const {dataBook, setDataBook} = state
+    console.log(dataBook)
 
     return (
         <div>

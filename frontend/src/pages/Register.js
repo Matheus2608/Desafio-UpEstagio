@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react'
-//import { useSelector, useDispatch } from 'react-redux'
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { AiFillBook } from "react-icons/ai"
 
 
 export function Register({state}) {
-
-    const {registerPage, setRegisterPage} = state
+    const {registerState, bookState} = state
+    const {registerPage, setRegisterPage} = registerState
+    const {dataBook, setDataBook} = bookState
+ 
+    const API_URL = 'http://localhost:5000/api/books/'
 
     const [formData, setFormData] = useState({
         name: '',
         author: '',
         date: '',
     })
-
-    
 
     const { name, author, date } = formData
 
@@ -26,10 +27,34 @@ export function Register({state}) {
     }
 
     const onSubmit = (e) => {
-        setRegisterPage(false)
         e.preventDefault()
-    }
 
+        // register
+        const book = {
+          name: e.target.name.value,
+          author: e.target.author.value,
+          date: e.target.date.value
+        }
+
+        console.log(book)
+
+        axios.post(API_URL, book)
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+        })
+
+        //update
+
+        axios.get(API_URL)
+        .then(res => {
+          const books = res.data;
+          console.log(books)
+          setDataBook(books);
+        })
+        setRegisterPage(false)
+        
+    }
 
     return (
         <>

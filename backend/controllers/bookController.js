@@ -14,10 +14,10 @@ const getBooks = asyncHandler(async (req, res) => {
 // @route   POST /api/books
 // @access  Private
 const setBook = asyncHandler(async (req, res) => {
-  if (!req.body.name || !req.body.author || !req.body.date) {
-    res.status(400)
-    throw new Error('Please insert all fields')
-  }
+  // if (!req.body.name || !req.body.author || !req.body.date) {
+  //   res.status(400)
+  //   throw new Error('Please insert all fields')
+  // }
 
   if (!req.body.date instanceof Date){
     res.status(400)
