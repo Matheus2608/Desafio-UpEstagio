@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
-import { AiFillBook } from "react-icons/ai"
+import { AiFillCheckCircle } from "react-icons/ai"
+
 
 
 export function Register({state}) {
@@ -46,21 +47,20 @@ export function Register({state}) {
 
         //update
 
-        axios.get(API_URL)
-        .then(res => {
-          const books = res.data;
-          console.log(books)
-          setDataBook(books);
-        })
+        // axios.get(API_URL)
+        // .then(res => {
+        //   const books = res.data;
+        //   console.log(books)
+        //   setDataBook(books);
+        // })
         setRegisterPage(false)
-        
     }
 
     return (
         <>
           <section className='heading'>
             <h1>
-              <AiFillBook /> Registro
+              <AiFillCheckCircle /> Registro
             </h1>
             <p>Registre um livro preenchendo o campo abaixo</p>
           </section>

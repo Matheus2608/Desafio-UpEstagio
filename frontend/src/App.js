@@ -15,7 +15,7 @@ function App() {
   
   return (
     <div className='container'>
-      <h1  style={{ marginBottom: 30, }}>Biblioteca Nacional de Brasília</h1>
+      <h1  style={{ marginBottom: 30, marginTop: 100}}>Biblioteca Nacional de Brasília</h1>
       {registerPage ? <Register state={state}/> : <Books state={bookState}/>}
     </div>
     )
